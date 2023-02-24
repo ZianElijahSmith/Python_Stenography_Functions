@@ -32,8 +32,13 @@ def embed(path_to_file, message):
     # Open the image and convert it to RGB mode
     img = Image.open(path_to_file).convert('RGB')
     # Convert the message to binary
+    # List comprehension is used to make sure
+    # Every byte of data is converted to its 8-bit binary code using ASCII values.
+    # This is why we have "08b"
     binary_message = ''.join([format(ord(char), "08b") for char in message])
     # Calculate the maximum length of the message that can be embedded
+    # This is a standard formula that, as far as I know
+    # Applies to all images, I could be wrong.
     max_message_length = img.size[0] * img.size[1] * 3 // 8
     # Check if the message is too long to embed
     if len(binary_message) > max_message_length:
