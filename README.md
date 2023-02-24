@@ -6,6 +6,10 @@ I plan to add some more later.
 The purpose of this repository is to both provide useful functions, and to teach coders about stenography.
 
 # Notes
+The (PNG + RGB + Image Channels == 3) test worked!
+<br />
+<img height="" width="" src="https://raw.githubusercontent.com/ZianElijahSmith/Python_Stenography_Functions/main/test1.png" />
+<br />
 PNG files tend to be easier to work with than JPG because PNG has "lossless compression".
 
 
