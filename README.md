@@ -8,6 +8,7 @@ The purpose of this repository is to both provide useful functions, and to teach
 
 # Release Notes
 The (PNG + RGB + Image Channels == 3) test worked!
+Tested on Python 3.7.3 (default, Oct 31 2022, 14:04:00) \n[GCC 8.3.0])
 The code was tested on the following image: https://upload.wikimedia.org/wikipedia/commons/6/6a/PNG_Test.png
 <br />
 <img height="" width="" src="https://raw.githubusercontent.com/ZianElijahSmith/Python_Stenography_Functions/main/test1.png" />
