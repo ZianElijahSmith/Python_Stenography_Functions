@@ -35,7 +35,12 @@ Read this URL to learn more of what an "alpha channel" is:
 https://www.makeuseof.com/tag/alpha-channel-images-mean/
 </li>
 <li>max_message_length = (img.size[0] * img.size[1] * 3) // 8</li>
-<li>The png image must be in RGB mode</li>
+<li>The png image must be in RGB mode
+<br />
+Read this URL to learn more:
+<br />
+https://www.howtogeek.com/42393/rgb-cmyk-alpha-what-are-image-channels-and-what-do-they-mean/
+</li>
 </ol>
 
 
