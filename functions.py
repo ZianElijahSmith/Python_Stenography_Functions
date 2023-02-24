@@ -30,6 +30,11 @@ from PIL import Image
 
 #embed does what the name implies, it will take a message and embed it into the image.
 def embed(path_to_file, message):
+    '''
+    Embeds a message into a png image.
+    png image must not have an alpha channel.
+    png image must be in RGB mode.
+    '''
     # Open the image and convert it to RGB mode
     img = Image.open(path_to_file).convert('RGB')
     # Convert the message to binary
@@ -44,12 +49,30 @@ def embed(path_to_file, message):
     # Check if the message is too long to embed
     if len(binary_message) > max_message_length:
         raise ValueError("Message is too large to embed in image")
-    # Embed the message in the image
+    # The line pixels = img.load() in the embed and decode functions creates an instance of the PixelAccess class, which is used to access and manipulate the pixels of the image.
+
+    # img.load() will create an instance of the PixelAccess class
+    # which is used to access and manipulate the pixels of the image.
+    
+    # The PixelAccess class is a low-level interface for accessing pixel data in an image, 
+    # and it provides a more efficient way to read and write pixel data than using the 
+    # getpixel() and putpixel() methods of the Image class. ( I didn't know this until recently)
+    
+    # A PixelAccess object allows you to access the pixel data in the image as a 2-dimensional array of tuples, 
+    # where each tuple represents the RGB color values of a single pixel.
+    
+    # For example, pixels[i, j] retrieves the color values of the pixel at position (i, j) in the image. 
+    # You can also modify the color values of a pixel by assigning a new tuple of color values to pixels[i, j].
     pixels = img.load()
+    
+    # We initalize a count at zero so we can keep count of how many bits of data
+    # have been embedded into the image
     count = 0
+
+    # This will iterate over the x-axis of the image
     for i in range(img.size[0]):
         for j in range(img.size[1]):
-            # Get the color values for the pixel
+            # Get the color values for each pixel
             color_values = pixels[i, j]
             # Embed one bit of the message in each color value
             for k in range(len(color_values)):
