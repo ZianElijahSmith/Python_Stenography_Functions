@@ -1,5 +1,9 @@
 # Python_Stenography_Functions
-At the moment, this repository has python functions to do stenography on .png files with no alpha channel and in RGB mode.
+At the moment, this repository has 3 python functions to do stenography on .png files with no alpha channel and in RGB mode.
+<br /><br />
+embed(path_to_file, message)<br />
+decode(path_to_file)<br />
+erase(path_to_file)<br />
 
 I plan to add some more later and this repo is a living repo.
 Notes and URLs will be added to aid the reader in learning about stenography.
