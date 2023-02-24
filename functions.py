@@ -28,6 +28,7 @@ Hope you learn something new and have fun!
 
 from PIL import Image
 
+#embed does what the name implies, it will take a message and embed it into the image.
 def embed(path_to_file, message):
     # Open the image and convert it to RGB mode
     img = Image.open(path_to_file).convert('RGB')
@@ -65,6 +66,7 @@ def embed(path_to_file, message):
     # Save the modified image
     img.save(path_to_file)
 
+# decode will give you the message embedded into an image
 def decode(file_to_decode):
     # Open the image and convert it to RGB mode
     img = Image.open(file_to_decode).convert('RGB')
@@ -86,7 +88,7 @@ def decode(file_to_decode):
             break
     return message[:-1]
   
-  
+  # erase will remove the message embedded into an image
   def erase(path_to_file):
     img = Image.open(path_to_file)
     pixels = img.load()
