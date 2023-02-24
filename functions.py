@@ -49,9 +49,9 @@ def embed(path_to_file, message):
     # Check if the message is too long to embed
     if len(binary_message) > max_message_length:
         raise ValueError("Message is too large to embed in image")
-    # The line pixels = img.load() in the embed and decode functions creates an instance of the PixelAccess class, which is used to access and manipulate the pixels of the image.
-
-    # img.load() will create an instance of the PixelAccess class
+        
+        
+    # img.load() below will create an instance of the PixelAccess class
     # which is used to access and manipulate the pixels of the image.
     
     # The PixelAccess class is a low-level interface for accessing pixel data in an image, 
