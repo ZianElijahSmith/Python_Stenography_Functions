@@ -7,6 +7,7 @@ The purpose of this repository is to both provide useful functions, and to teach
 
 # Notes
 The (PNG + RGB + Image Channels == 3) test worked!
+The code was tested on the following image: https://upload.wikimedia.org/wikipedia/commons/6/6a/PNG_Test.png
 <br />
 <img height="" width="" src="https://raw.githubusercontent.com/ZianElijahSmith/Python_Stenography_Functions/main/test1.png" />
 <br />
