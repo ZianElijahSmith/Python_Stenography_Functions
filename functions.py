@@ -4,7 +4,7 @@ They have been tested and worked on the following image:
 https://upload.wikimedia.org/wikipedia/commons/6/6a/PNG_Test.png
 
 
-They were not made for png.
+They were not made for jpg.
 
 They have not been tested on an image with 4 channel bands
 If an image has 4, it means it has an 'alpha channel'
@@ -12,7 +12,7 @@ See this URL to learn more of what that means:
 https://www.makeuseof.com/tag/alpha-channel-images-mean/
 
 The image must be in RGB mode.
-To test, do...
+To find the mode, do...
 
 from PIL import Image
 img = Image('/path/to/image')
