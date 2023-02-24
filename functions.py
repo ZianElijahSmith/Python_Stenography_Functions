@@ -1,0 +1,101 @@
+'''
+These three functions below are for .png files that have 3 channel bands.
+They have been tested and worked on the following image:
+https://upload.wikimedia.org/wikipedia/commons/6/6a/PNG_Test.png
+
+
+They were not made for png.
+
+They have not been tested on an image with 4 channel bands
+If an image has 4, it means it has an 'alpha channel'
+See this URL to learn more of what that means:
+https://www.makeuseof.com/tag/alpha-channel-images-mean/
+
+The image must be in RGB mode.
+To test, do...
+
+from PIL import Image
+img = Image('/path/to/image')
+print(img.mode)
+
+
+embed will take a file and a message, and embed the message into the file.
+decode takes a file and extracts the message.
+erase will remove the message from the image.
+
+Hope you learn something new and have fun!
+'''
+
+from PIL import Image
+
+def embed(path_to_file, message):
+    # Open the image and convert it to RGB mode
+    img = Image.open(path_to_file).convert('RGB')
+    # Convert the message to binary
+    binary_message = ''.join([format(ord(char), "08b") for char in message])
+    # Calculate the maximum length of the message that can be embedded
+    max_message_length = img.size[0] * img.size[1] * 3 // 8
+    # Check if the message is too long to embed
+    if len(binary_message) > max_message_length:
+        raise ValueError("Message is too large to embed in image")
+    # Embed the message in the image
+    pixels = img.load()
+    count = 0
+    for i in range(img.size[0]):
+        for j in range(img.size[1]):
+            # Get the color values for the pixel
+            color_values = pixels[i, j]
+            # Embed one bit of the message in each color value
+            for k in range(len(color_values)):
+                if count < len(binary_message):
+                    color_values = list(color_values)
+                    color_values[k] = int(bin(color_values[k])[:-1] + binary_message[count], 2)
+                    count += 1
+            # Update the pixel with the modified color values
+            pixels[i, j] = tuple(color_values)
+            if count >= len(binary_message):
+                break
+        if count >= len(binary_message):
+            break
+    # Save the modified image
+    img.save(path_to_file)
+
+def decode(file_to_decode):
+    # Open the image and convert it to RGB mode
+    img = Image.open(file_to_decode).convert('RGB')
+    # Decode the message from the image
+    pixels = img.load()
+    binary_message = ""
+    for i in range(img.size[0]):
+        for j in range(img.size[1]):
+            # Get the color values for the pixel
+            color_values = pixels[i, j]
+            # Extract one bit of the message from each color value
+            for k in range(len(color_values)):
+                binary_message += bin(color_values[k])[-1]
+    # Convert the binary message back to text
+    message = ""
+    for i in range(0, len(binary_message), 8):
+        message += chr(int(binary_message[i:i+8], 2))
+        if message[-1] == "\0":
+            break
+    return message[:-1]
+  
+  
+  def erase(path_to_file):
+    img = Image.open(path_to_file)
+    pixels = img.load()
+    for i in range(img.size[0]):
+        for j in range(img.size[1]):
+            color_values = pixels[i, j]
+            for k in range(len(color_values)):
+                binary_value = bin(color_values[k])[2:].zfill(8)
+                if binary_value[-1] == '1':
+                    binary_value = binary_value[:-1] + '0'
+                    color_values = list(color_values)
+                    color_values[k] = int(binary_value, 2)
+            pixels[i, j] = tuple(color_values)
+    img.save(path_to_file)
+
+
+# Note that this code assumes that the input image is in RGB mode. If the image is in a different mode, you may need to convert it to RGB mode before running the embed function.
