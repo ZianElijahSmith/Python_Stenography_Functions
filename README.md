@@ -49,14 +49,25 @@ https://www.howtogeek.com/42393/rgb-cmyk-alpha-what-are-image-channels-and-what-
 </li>
 </ol>
 
-
 # Learning Resources
 <ol>
-<li>https://www.geeksforgeeks.org/image-based-steganography-using-python/</li>
+<h2>Websites</h2>
+<li>Steganography Online - https://stylesuxx.github.io/steganography/</li>
+<li>Digital Invisible Ink Toolkit - http://diit.sourceforge.net/</li>
+<li>OpenStego - https://www.openstego.com/</li>
+<li>Steganography Studio - http://www.outguess.org/detection.php</li>
+<li>Steganography Wiki - https://en.wikipedia.org/wiki/Steganography</li>
+<li>Image Based Stenography with Python - https://www.geeksforgeeks.org/image-based-steganography-using-python/</li>
 </ol>
 
-<br />
-<br />
+<ol>
+<h2>Books:</h2>
+<li>"Steganography in Digital Media: Principles, Algorithms, and Applications" by Jessica Fridrich, Miroslav Goljan, and Dorin Hogea</li>
+<li>"Steganography: Techniques and Applications" by Arun Kumar Singh and Shivendra Singh</li>
+<li>"Applied Cryptography: Protocols, Algorithms, and Source Code in C" by Bruce Schneier</li>
+<li>"Information Hiding: Steganography and Watermarking - Attacks and Countermeasures" by Neil F. Johnson, Zoran Duric, and Sushil Jajodia</li>
+<li>"Handbook of Information and Communication Security" by Peter Stavroulakis and Mark Stamp</li>
+</ol>
 
 # Speical Thanks
 Thank you to Pillow! 
