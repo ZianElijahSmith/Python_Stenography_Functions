@@ -112,7 +112,7 @@ def decode(file_to_decode):
     return message[:-1]
   
   # erase will remove the message embedded into an image
-  def erase(path_to_file):
+def erase(path_to_file):
     img = Image.open(path_to_file)
     pixels = img.load()
     for i in range(img.size[0]):
